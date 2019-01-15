@@ -4,3 +4,7 @@ Note: Using both ddtrace-run and manually inserting the Middleware has been know
 My Deployment Instructions:
 1.) docker build -t flaskapp:latest .
 2.) sudo docker run -d --name flask_app --network <Specify_same_network_as_dd_agent> -p 5050:5050 flaskapp
+
+Check Containers attached to Network
+
+docker network inspect postgres-network |jq .[0] |jq .Containers[].Name
